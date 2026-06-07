@@ -1,76 +1,25 @@
-import { useState } from 'react';
-
-export default function LP3() {
-  const [theme, setTheme] = useState('modern'); // 'modern' | 'classic'
-
-  const styles = {
-    modern: {
-      bg: 'bg-slate-50',
-      text: 'text-slate-900',
-      accent: 'text-blue-600',
-      btn: 'bg-blue-600 hover:bg-blue-700',
-      cardBorder: 'border-blue-600',
-      imageFilter: 'grayscale-0'
-    },
-    classic: {
-      bg: 'bg-stone-100',
-      text: 'text-stone-900',
-      accent: 'text-amber-800',
-      btn: 'bg-amber-800 hover:bg-amber-900',
-      cardBorder: 'border-amber-800',
-      imageFilter: 'sepia-[.5]'
-    }
-  };
-
-  const current = styles[theme];
-
-  return (
-    <div className={`min-h-screen transition-colors duration-500 ${current.bg} font-sans`}>
-      <nav className="p-5 flex justify-between items-center bg-white shadow-sm px-6 md:px-20">
-        <div className={`font-bold text-xl ${current.accent}`}>JaringanID</div>
-        <div className="flex items-center gap-4">
-          <button 
-            onClick={() => setTheme(theme === 'modern' ? 'classic' : 'modern')}
-            className="text-sm text-gray-500 hover:text-gray-900"
-          >
-            Switch to {theme === 'modern' ? 'Classic' : 'Modern'} Theme
-          </button>
-          <button className={`${current.btn} text-white px-5 py-2 rounded-lg font-medium transition-colors`}>
-            Join Class
-          </button>
-        </div>
-      </nav>
-
-      <header className="py-16 px-6 max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
-        <div className="flex-1 text-left">
-          <h1 className={`text-4xl md:text-5xl font-extrabold ${current.text} mb-4 leading-tight`}>
-            Kuasai Infrastruktur Jaringan
+export default function App() {
+    return (
+      <div className="bg-slate-900 min-h-screen text-slate-100 flex items-center p-8">
+        <div className="max-w-4xl mx-auto text-center">
+          <span className="text-indigo-400 font-semibold tracking-wider text-sm uppercase mb-4 block">
+            KursusJaringan.com
+          </span>
+          <h1 className="text-5xl font-extrabold text-white mb-6 leading-tight">
+            Build the Infrastructure of the Future.
           </h1>
-          <p className="text-gray-600 text-lg mb-8">
-            Tingkatkan skill IT Anda dengan kurikulum terstruktur dari praktisi industri berpengalaman.
+          <p className="text-lg text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed">
+            Step-by-step training from basic subnetting to advanced BGP configurations. Join 5,000+ engineers advancing their IT careers.
           </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4">
-            <div className={`bg-white p-6 rounded-xl shadow-md border-t-4 ${current.cardBorder}`}>
-              <h3 className={`font-bold mb-2 ${current.text}`}>Kurikulum Standar</h3>
-              <p className="text-sm text-gray-500">Materi yang selalu update sesuai kebutuhan industri.</p>
-            </div>
-            <div className={`bg-white p-6 rounded-xl shadow-md border-t-4 ${current.cardBorder}`}>
-              <h3 className={`font-bold mb-2 ${current.text}`}>E-Sertifikat</h3>
-              <p className="text-sm text-gray-500">Dapatkan sertifikat resmi setelah lulus.</p>
-            </div>
+          <div className="flex gap-4 justify-center">
+            <button className="bg-indigo-600 hover:bg-indigo-500 text-white font-medium py-3 px-8 rounded-lg shadow-lg transition-colors">
+              Start Learning
+            </button>
+            <button className="bg-slate-800 hover:bg-slate-700 text-slate-300 font-medium py-3 px-8 rounded-lg border border-slate-700 transition-colors">
+              View Syllabus
+            </button>
           </div>
         </div>
-
-        {/* Polished Graphic */}
-        <div className="flex-1">
-          <img 
-            src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&q=80" 
-            alt="Global Network" 
-            className={`w-full h-auto rounded-2xl shadow-xl transition-all duration-700 ${current.imageFilter}`}
-          />
-        </div>
-      </header>
-    </div>
-  )
-}
+      </div>
+    )
+  }
